@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.title {
+  text-align: center;
+  font-size: 50px;
+}
+
+section {
+  position: relative;
+  padding: 15px;
+  width: 90%;
+}
+
+p {
+  position: relative;
+  clear: right;
+}
+
+.contentArea {
+  position: relative;
+  background-color: lightgray;
+  border: 2.5px solid black;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+.contentTitle{
+  border-left: 2.5px solid black;
+  border-bottom: 2.5px solid black;
+  float: right;
+  width: 35%;
+  height: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+.mobileContent{
+  display: none;
+}
+.mobileTitle{
+  display: none;
+}
+.chicken {
+  background-color: pink;
+}
+
+.beef {
+  background-color: lightcoral;
+}
+
+.sushi {
+  background-color: beige;
+}
+
+.content {
+  padding: 5px;
+  border: none;
+  font-family: Helvetica;
+  color: black;
+  margin: 3px;
+  height: 160px;
+  overflow-y: hidden;
+}
+.content:hover{
+  cursor: nw-resize;
+  overflow-y: scroll;
+}
+
+
+/*desktop breakpoint*/
+@media (min-width: 992px) {
+  .column-lg-4 {
+    float: left;
+    width: 33.33%;
+  }
+}
+
+/*tablet breakpoints*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .colmn-md-6 {
+    float: left;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .colmn-md-12 {
+    float: left;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*mobile breakpoint*/
+@media ( max-width: 767px ) {
+  .colmn-sm-12 {
+    float: left;
+    width: 100%;
+  }
+  .contentTitle{
+    width: 100%;
+    justify-content: center;
+    overflow: auto;
+  }
+  .mobileTitle{
+    display: block;
+    text-align: left;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 35px;
+  }
+  .mobileContent{
+    display: inline;
+    text-align: center;
+  }
+  .normalTitle{
+    display: none;
+   
+  }
+
+}
