@@ -14,6 +14,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 var dc = {};
 
 var homeHtmlUrl = "snippets/home-snippet.html";
+var aboutHtmlUrl = "snippets/about-snippet.html";
 var allCategoriesUrl =
   "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json";
 var categoriesTitleHtml = "snippets/categories-title-snippet.html";
@@ -149,6 +150,16 @@ dc.loadMenuCategories = function () {
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
+dc.loadAboutStars = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    function (aboutHtmlUrl) {
+      var starView = buildStarsViewHtml(aboutHtmlUrl);
+    insertHtml("#main-content", starView);
+    },
+    false);
+};
 
 
 // Load the menu items view
@@ -160,6 +171,33 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
+
+function buildAndShowAboutHTML () {
+  // Load title snippet of categories page
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    buildStarsViewHtml
+    );
+}
+
+
+function buildStarsViewHtml (aboutHtml) {
+  var totalStars = randomStars();
+  //var finalHtml = aboutHtml;
+  // Loop over stars
+  var finalHtml = "<section class='col'>";
+  let html = '';
+  for (var i = 0; i < totalStars; i++) {
+    html += insertProperty(aboutHtml, `class${i+1}`,"fa fa-star-o");
+  }
+  finalHtml += html;
+  finalHtml += `${totalStars}-star rating`;
+  finalHtml += "</section>";
+  return finalHtml;
+}
+function randomStars() {
+  return Math.floor(Math.random() * 5) + 1;
+}
 
 // Builds HTML for the categories page based on the data
 // from the server
