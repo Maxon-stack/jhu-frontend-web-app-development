@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app='ShoppingList'>
+<head>
+  <title>Shopping List Check Off</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <script src="angular/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    .emptyMessage {
+      font-weight: bold;
+      color: red;
+      font-size: 1.2em;
+    }
+    li {
+      margin-bottom: 7px;
+      font-size: 1.2em;
+    }
+    li>button {
+      margin-left: 6px;
+    }
+    button>span {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" ng-controller="ToBuyController as toBuy">
+    <h1>Shopping List Check Off</h1>
+    <div class="row">
+      <!-- To Buy List -->
+      <div class="col-md-6">
+        <h2>To Buy:</h2>
+        <ul>
+          <li ng-repeat="item in toBuy.items">{{$index + 1}}. Buy {{item.quantity}} {{item.name}}(s) for
+            ${{item.pricePerItem}} each
+            <button class="btn btn-default" ng-click="toBuy.buyItem($index)"><span
+                class="glyphicon glyphicon-ok"></span> Bought</button>
+          </li>
+        </ul>
+        <div ng-if="toBuy.errorMessage()" class="emptyMessage">Everything is bought!</div>
+      </div>
+      <!-- Cart List -->
+      <div class="col-md-6">
+        <h2>Already Bought:</h2>
+        <div class="cart" ng-controller='CartController as cart'>
+          <ul>
+            <li ng-repeat="item in cart.items">{{$index + 1}}. Bought {{item.quantity}} {{item.name}}(s) for total price
+              of $$${{item.totalPrice}}</li>
+          </ul>
+          <div ng-if="cart.errorMessage()" class="emptyMessage">Nothing bought yet.</div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
