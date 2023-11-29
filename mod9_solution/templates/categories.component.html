@@ -1,0 +1,14 @@
+<div class="flex row card">
+	<div class="col-sm-6 " ng-repeat="category in $ctrl.categories" ui-sref="items({categoryShortName: category.short_name, categoryName:category.name})">
+		<div class="card border border-primary" >
+			<div class="card-body text-center">
+				<h3 class="card-title">{{category.name}}</h3>
+				<p class="card-text">{{category.special_instructions}}</p>
+				<a >
+					<button class="btn btn-primary">View Items</button>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</div>
