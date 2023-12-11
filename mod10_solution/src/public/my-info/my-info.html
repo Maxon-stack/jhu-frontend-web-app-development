@@ -1,0 +1,36 @@
+<div class="container text-center">
+  <h2>My information</h2>
+  <!--
+  <h2 id="menu-categories-title" class="text-center">Menu Categories</h2>
+  <div class="text-center">
+    Substituting white rice with brown rice or fried rice after 3:00pm will be $1.50 for a pint and $2.50 for a quart.
+  </div>
+
+  <menu-category ng-repeat="menuCategory in menuCtrl.menuCategories"
+                 category="menuCategory">
+  </menu-category>
+-->
+  <div ng-if="myInfoCtrl.signedUp">
+    <div class="col text-center">
+      <p>First name: {{ myInfoCtrl.firstName }}</p>
+      <p>Last name: {{ myInfoCtrl.lastName }}</p>
+      <p>E-mail address: {{ myInfoCtrl.email }}</p>
+      <p>Phone number: {{ myInfoCtrl.phone }}</p>
+    </div>
+    <div class="text-center">
+      <h3>Favorite Dish:</h3>
+      <div ng-if="myInfoCtrl.favoriteMenuItem">
+        <h4>{{ myInfoCtrl.favoriteMenuItem.name }} [{{ myInfoCtrl.favoriteDish }}]</h4>
+        <p>{{ myInfoCtrl.favoriteMenuItem.description }}</p>
+      </div>
+      <div ng-show="!myInfoCtrl.favoriteMenuItem">
+        <p>Sorry, the short name that you entered was invalid.</p>
+      </div>
+      <img ng-src="{{myInfoCtrl.favoriteMenuItem.imgPath}}" alt="Menu Item Image">
+    </div>
+  </div>
+  <div ng-if="!myInfoCtrl.signedUp">
+    <p>Not Signed Up Yet. Sign up Now!</p>
+    <p><a ui-sref="public.signUp" class="btn btn-primary">Go To Sign up Page</a></p>
+  </div>
+</div>

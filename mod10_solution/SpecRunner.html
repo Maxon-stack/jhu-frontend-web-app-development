@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Restaurant Unit Tests</title>
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.4.1/jasmine_favicon.png">
+  <link rel="stylesheet" href="lib/jasmine-2.4.1/jasmine.css">
+</head>
+
+<body>
+
+  <script src="lib/jasmine-2.4.1/jasmine.js"></script>
+  <script src="lib/jasmine-2.4.1/jasmine-html.js"></script>
+  <script src="lib/jasmine-2.4.1/boot.js"></script>
+
+
+  <script type="text/javascript" src="lib/angular.min.js"></script>
+  <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="lib/ng-file-upload/ng-file-upload-all.min.js"></script>
+  <script type="text/javascript" src="lib/angular-mocks.js"></script>
+
+  <!-- Common module -->
+  <script src="src/common/common.module.js"></script>
+  <script src="src/common/menu.service.js"></script>
+  <script src="src/common/loading/loading.component.js"></script>
+  <script src="src/common/loading/loading.interceptor.js"></script>
+
+  <script src="src/public/public.module.js"></script>
+  <script src="src/public/public.routes.js"></script>
+  <script src="src/public/menu/menu.controller.js"></script>
+  <script src="src/public/menu-items/menu-items.controller.js"></script>
+  <script src="src/public/menu-category/menu-category.component.js"></script>
+  <script src="src/public/menu-item/menu-item.component.js"></script>
+
+
+  <!-- include spec files here... -->
+  <script src="spec/menu.service.spec.js"></script>
+
+
+</body>
+
+</html>
